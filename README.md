@@ -28,7 +28,7 @@ simpler design can't?"*
 |---|---|---|
 | [`00-framework/`](00-framework/system-design-framework.md) | The 20-step method, capacity math, staff-level thinking, interview wording, checklist | 🟢 done |
 | [`01-patterns/`](01-patterns/caching.md) | **Caching 🟢 · Sharding 🟢 · Queues & Workers 🟢 · Idempotency 🟢 · Rate Limiting 🟢** · realtime, object storage, observability, multi-region (planned) | 🟢 building |
-| [`02-systems/`](02-systems/url-shortener/README.md) | **URL Shortener 🟢 · Web Crawler 🟢 · Job Scheduler 🟢** · notifications, chat, file storage, YouTube, rate limiter, metrics, news feed, payments, ride-sharing (planned) | 🟢 building |
+| [`02-systems/`](02-systems/url-shortener/README.md) | **URL Shortener 🟢 · Web Crawler 🟢 · Job Scheduler 🟢 · Notification System 🟢** · chat, file storage, YouTube, rate limiter, metrics, news feed, payments, ride-sharing (planned) | 🟢 building |
 | `03-tradeoffs/` | SQL vs NoSQL, Kafka vs SQS, sync vs async, push vs pull, WebSocket vs SSE, active-active vs active-passive | ⚪ planned |
 | `04-interview-drills/` | Bottleneck drills, failure scenarios, scalability & DB questions, staff-level follow-ups | ⚪ planned |
 | `05-cheatsheets/` | 1–2 page revision sheets | ⚪ planned |
@@ -49,8 +49,9 @@ Building **one topic at a time** (per the learning plan in `prompt.txt`):
 - [x] **02 · Web Crawler** — assembles queue+workers, idempotency, sharding, caching
 - [x] **01 · Rate Limiting pattern** — token/leaky bucket, windows, distributed Redis limiter
 - [x] **02 · Distributed Job Scheduler** — scheduling, exactly-once effect, leases + fencing
+- [x] **02 · Notification System** — fan-out, multi-channel, provider resilience, preferences
 - [ ] 01 · More patterns (realtime, observability, object storage…)
-- [ ] 02 · Notification System
+- [ ] 02 · More systems (URL Shortener done; chat, file storage, YouTube…)
 - [ ] 02 · Chat / Messaging
 - [ ] 02 · File Storage (Dropbox)
 - [ ] 02 · YouTube / Video
