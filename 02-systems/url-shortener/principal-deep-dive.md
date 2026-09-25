@@ -17,6 +17,25 @@
 
 ---
 
+## The stops (climb one lever at a time)
+
+Same staircase discipline as every system in this repo — lead with the smallest defensible stop; know the big one.
+
+| Stop | Scale / SLA target | Shape | **Trigger that forces the NEXT stop** |
+|---|---|---|---|
+| **1 · Single box** | ~1k reads/s, 99.9% | 1 API server + 1 DB; code = counter→Base62 | read latency climbs; a single box is a SPOF |
+| **2 · Cache + replicas (base docs)** | ~10k reads/s, 99.95% | LB + stateless API + **Redis cache-aside** + read replicas; KGS leases ranges; 302 + async click event to a queue | analytics volume + due-scan of clicks; global users; five-nines |
+| **3 · Sharded + streaming analytics** | ~100k reads/s, 99.99% | **consistent-hashing sharded** KV by short_code; **KGS coordinated by ZooKeeper**; **Kafka→Flink→ClickHouse** analytics; CDN/edge | single region is the availability ceiling; global latency |
+| **4 · Multi-region active-active (top stop, this doc)** | 10B reads/mo (~8k peak now, headroom for 1M+), **99.999%, <20 ms** | **anycast DNS + CDN** → multi-region redirect fleets → **globally-replicated KV**; per-region KGS partitions; full streaming pipeline | (ceiling of a URL shortener) |
+
+> **Note on this system specifically:** even at 10B reads/month, **writes stay ~80/s** — so the driver up the
+> staircase is **read availability + latency (the fifth nine, <20 ms)**, *not* write/storage pressure. That's why the
+> jumps here buy **multi-region + CDN + cache**, and sharding is more about blast-radius/HA than throughput. Most
+> interviews stop at **Stop 2**; this doc is Stop 3→4 for when the prompt demands global five-nines. The full
+> adopt/remove table is in [§ Reconciling with the base docs](#reconciling-with-the-base-docs-staff-judgment) below.
+
+---
+
 ## 1. Requirements & System Scope
 
 ### Functional
