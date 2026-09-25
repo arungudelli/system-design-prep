@@ -40,6 +40,17 @@
     - [Failure Scenarios](02-systems/web-crawler/failure-scenarios.md)
     - [Interview Questions](02-systems/web-crawler/interview-questions.md)
     - [Cheatsheet](02-systems/web-crawler/cheatsheet.md)
+  - **Distributed Job Scheduler**
+    - [Overview](02-systems/job-scheduler/README.md)
+    - [Requirements](02-systems/job-scheduler/requirements.md)
+    - [Capacity](02-systems/job-scheduler/capacity.md)
+    - [API & Data Model](02-systems/job-scheduler/api-data-model.md)
+    - [Architecture](02-systems/job-scheduler/architecture.md)
+    - [Deep Dives](02-systems/job-scheduler/deep-dives.md)
+    - [Trade-offs](02-systems/job-scheduler/tradeoffs.md)
+    - [Failure Scenarios](02-systems/job-scheduler/failure-scenarios.md)
+    - [Interview Questions](02-systems/job-scheduler/interview-questions.md)
+    - [Cheatsheet](02-systems/job-scheduler/cheatsheet.md)
   - <small>more systems coming…</small>
 
 - **03 · Trade-offs** <small>(coming)</small>
