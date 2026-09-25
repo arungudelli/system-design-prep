@@ -11,6 +11,7 @@
 
 - **01 · Patterns**
   - [Caching](01-patterns/caching.md)
+  - [Partitioning & Sharding](01-patterns/sharding.md)
   - <small>more patterns coming…</small>
 
 - **02 · Systems**
