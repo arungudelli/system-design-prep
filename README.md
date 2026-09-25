@@ -28,7 +28,7 @@ simpler design can't?"*
 |---|---|---|
 | [`00-framework/`](00-framework/system-design-framework.md) | The 20-step method, capacity math, staff-level thinking, interview wording, checklist | 🟢 done |
 | [`01-patterns/`](01-patterns/caching.md) | **Caching 🟢 · Sharding 🟢 · Queues & Workers 🟢 · Idempotency 🟢** · rate limiting, realtime, object storage, observability, multi-region (planned) | 🟢 building |
-| [`02-systems/`](02-systems/url-shortener/README.md) | **URL Shortener 🟢** · notifications, chat, web crawler, file storage, YouTube, rate limiter, job scheduler, metrics, news feed, payments, ride-sharing (planned) | 🟢 building |
+| [`02-systems/`](02-systems/url-shortener/README.md) | **URL Shortener 🟢 · Web Crawler 🟢** · notifications, chat, file storage, YouTube, rate limiter, job scheduler, metrics, news feed, payments, ride-sharing (planned) | 🟢 building |
 | `03-tradeoffs/` | SQL vs NoSQL, Kafka vs SQS, sync vs async, push vs pull, WebSocket vs SSE, active-active vs active-passive | ⚪ planned |
 | `04-interview-drills/` | Bottleneck drills, failure scenarios, scalability & DB questions, staff-level follow-ups | ⚪ planned |
 | `05-cheatsheets/` | 1–2 page revision sheets | ⚪ planned |
@@ -46,8 +46,8 @@ Building **one topic at a time** (per the learning plan in `prompt.txt`):
 - [x] **01 · Partitioning & Sharding pattern** — the write/storage-scaling last resort
 - [x] **01 · Queues & Workers pattern** — async processing foundation
 - [x] **01 · Idempotency pattern** — what makes retries safe
+- [x] **02 · Web Crawler** — assembles queue+workers, idempotency, sharding, caching
 - [ ] 01 · More patterns (rate limiting, realtime, observability…)
-- [ ] 02 · Web Crawler
 - [ ] 02 · Distributed Job Scheduler
 - [ ] 02 · Notification System
 - [ ] 02 · Chat / Messaging

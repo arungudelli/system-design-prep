@@ -28,6 +28,17 @@
     - [Failure Scenarios](02-systems/url-shortener/failure-scenarios.md)
     - [Interview Questions](02-systems/url-shortener/interview-questions.md)
     - [Cheatsheet](02-systems/url-shortener/cheatsheet.md)
+  - **Web Crawler**
+    - [Overview](02-systems/web-crawler/README.md)
+    - [Requirements](02-systems/web-crawler/requirements.md)
+    - [Capacity](02-systems/web-crawler/capacity.md)
+    - [API & Data Model](02-systems/web-crawler/api-data-model.md)
+    - [Architecture](02-systems/web-crawler/architecture.md)
+    - [Deep Dives](02-systems/web-crawler/deep-dives.md)
+    - [Trade-offs](02-systems/web-crawler/tradeoffs.md)
+    - [Failure Scenarios](02-systems/web-crawler/failure-scenarios.md)
+    - [Interview Questions](02-systems/web-crawler/interview-questions.md)
+    - [Cheatsheet](02-systems/web-crawler/cheatsheet.md)
   - <small>more systems coming…</small>
 
 - **03 · Trade-offs** <small>(coming)</small>
