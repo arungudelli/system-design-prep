@@ -9,7 +9,9 @@
   - [Interview wording](00-framework/interview-wording.md)
   - [Interview checklist](00-framework/interview-checklist.md)
 
-- **01 · Patterns** <small>(coming)</small>
+- **01 · Patterns**
+  - [Caching](01-patterns/caching.md)
+  - <small>more patterns coming…</small>
 
 - **02 · Systems**
   - **URL Shortener**
