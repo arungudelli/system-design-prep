@@ -35,6 +35,7 @@ together nearly every pattern you've studied.
 7. **[Failure Scenarios](02-systems/web-crawler/failure-scenarios.md)** — what breaks and how we contain it
 8. **[Interview Questions](02-systems/web-crawler/interview-questions.md)** — attempt first, then reveal
 9. **[Cheatsheet](02-systems/web-crawler/cheatsheet.md)** — 1-page revision
+10. **[★ Principal Deep Dive](02-systems/web-crawler/principal-deep-dive.md)** — the **staged stops** (small → web-scale) + max-scale variant (multi-region, JS-render tier, ML priority, distributed dedup) with a reconciliation table of when to adopt/remove each piece
 
 ---
 

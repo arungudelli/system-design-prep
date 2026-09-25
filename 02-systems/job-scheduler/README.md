@@ -37,6 +37,7 @@ retries, long-running jobs, and failures — all built on the [queues + workers]
 7. **[Failure Scenarios](02-systems/job-scheduler/failure-scenarios.md)** — scheduler down at fire time, worker crash, dup fire
 8. **[Interview Questions](02-systems/job-scheduler/interview-questions.md)** — attempt first, then reveal
 9. **[Cheatsheet](02-systems/job-scheduler/cheatsheet.md)** — 1-page revision
+10. **[★ Principal Deep Dive](02-systems/job-scheduler/principal-deep-dive.md)** — the **staged stops** (cron-on-a-box → sharded multi-region) + max-scale variant (time-bucketed sharding, timing wheels, multi-region, fairness) with a reconciliation table of when to adopt/remove each piece
 
 ---
 

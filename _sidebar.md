@@ -41,6 +41,7 @@
     - [Failure Scenarios](02-systems/web-crawler/failure-scenarios.md)
     - [Interview Questions](02-systems/web-crawler/interview-questions.md)
     - [Cheatsheet](02-systems/web-crawler/cheatsheet.md)
+    - [★ Principal Deep Dive (the stops)](02-systems/web-crawler/principal-deep-dive.md)
   - **Distributed Job Scheduler**
     - [Overview](02-systems/job-scheduler/README.md)
     - [Requirements](02-systems/job-scheduler/requirements.md)
@@ -52,6 +53,7 @@
     - [Failure Scenarios](02-systems/job-scheduler/failure-scenarios.md)
     - [Interview Questions](02-systems/job-scheduler/interview-questions.md)
     - [Cheatsheet](02-systems/job-scheduler/cheatsheet.md)
+    - [★ Principal Deep Dive (the stops)](02-systems/job-scheduler/principal-deep-dive.md)
   - **Notification System**
     - [Overview](02-systems/notification-system/README.md)
     - [Requirements](02-systems/notification-system/requirements.md)
@@ -63,6 +65,7 @@
     - [Failure Scenarios](02-systems/notification-system/failure-scenarios.md)
     - [Interview Questions](02-systems/notification-system/interview-questions.md)
     - [Cheatsheet](02-systems/notification-system/cheatsheet.md)
+    - [★ Principal Deep Dive (the stops)](02-systems/notification-system/principal-deep-dive.md)
   - <small>more systems coming…</small>
 
 - **03 · Trade-offs** <small>(coming)</small>

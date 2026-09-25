@@ -20,6 +20,15 @@ For each topic the loop is:
 forces it — and every added component must answer *"why do we need this, and what does it solve that the
 simpler design can't?"*
 
+### Design as a staircase of "stops" — never be blind
+
+Every system is presented as a **staircase**: the smallest defensible design first, then each bigger **stop**
+with the **exact trigger** (bottleneck/SLA) that forces it. Lead with the simple stop; *know* the big one.
+Each system's **★ Principal Deep Dive** is the "never be blind" companion — the fully-loaded, max-scale
+(deliberately over-engineered) variant **with a reconciliation table** mapping every heavy component to the
+trigger that justifies it *and when it's overkill and should be removed*. Goal: **competent at small, fluent
+about big, disciplined about the difference.**
+
 ---
 
 ## Repository map

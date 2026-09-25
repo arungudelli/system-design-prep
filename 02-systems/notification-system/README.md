@@ -35,6 +35,7 @@ quiet hours + opt-outs**, **deduplication**, **retries/DLQ per channel**, **rate
 7. **[Failure Scenarios](02-systems/notification-system/failure-scenarios.md)** — provider outage, poison messages, dup sends
 8. **[Interview Questions](02-systems/notification-system/interview-questions.md)** — attempt first, then reveal
 9. **[Cheatsheet](02-systems/notification-system/cheatsheet.md)** — 1-page revision
+10. **[★ Principal Deep Dive](02-systems/notification-system/principal-deep-dive.md)** — the **staged stops** (inline send → global) + max-scale variant (multi-provider, multi-region, delivery-tracking stream, ML/aggregation) with a reconciliation table of when to adopt/remove each piece
 
 ---
 
