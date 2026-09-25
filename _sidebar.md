@@ -29,6 +29,7 @@
     - [Failure Scenarios](02-systems/url-shortener/failure-scenarios.md)
     - [Interview Questions](02-systems/url-shortener/interview-questions.md)
     - [Cheatsheet](02-systems/url-shortener/cheatsheet.md)
+    - [★ Principal Deep Dive (high-scale)](02-systems/url-shortener/principal-deep-dive.md)
   - **Web Crawler**
     - [Overview](02-systems/web-crawler/README.md)
     - [Requirements](02-systems/web-crawler/requirements.md)

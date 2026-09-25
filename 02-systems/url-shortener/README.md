@@ -29,6 +29,7 @@ generation, and the 301-vs-302 redirect trade-off**, not in drawing a hundred bo
 7. **[Failure Scenarios](02-systems/url-shortener/failure-scenarios.md)** — what breaks and how we contain it
 8. **[Interview Questions](02-systems/url-shortener/interview-questions.md)** — attempt first, then reveal the model answer
 9. **[Cheatsheet](02-systems/url-shortener/cheatsheet.md)** — 1-page revision
+10. **[★ Principal Deep Dive](02-systems/url-shortener/principal-deep-dive.md)** — the exhaustive **high-scale** variant (10B reads/mo, 99.999%, <20 ms): ZooKeeper KGS, Kafka→Flink→ClickHouse analytics, consistent-hashing sharding, anycast/CDN, full 5/10-yr capacity math
 
 ---
 
