@@ -1,0 +1,7 @@
+# Docs build dependencies (MkDocs Material)
+# Used by .github/workflows/deploy.yml and for local builds:
+#   python -m pip install -r requirements.txt
+#   python -m mkdocs serve      # local preview
+#   python -m mkdocs build --strict
+mkdocs-material==9.7.7
+pymdown-extensions==12.1

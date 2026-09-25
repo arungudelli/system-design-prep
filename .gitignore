@@ -1,3 +1,9 @@
 # Secrets — never commit
 token.txt
 *.pat
+
+# MkDocs build output & caches
+site/
+.cache/
+__pycache__/
+*.pyc

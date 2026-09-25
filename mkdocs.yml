@@ -1,0 +1,143 @@
+site_name: System Design Prep
+site_description: >-
+  FAANG Staff/Principal/EM system-design interview prep — a 20-step framework, reusable
+  patterns, per-system deep dives, trade-offs, and staged "stops" from simple to web-scale.
+site_url: https://arungudelli.github.io/system-design-prep/
+site_author: arungudelli
+
+repo_url: https://github.com/arungudelli/system-design-prep
+repo_name: arungudelli/system-design-prep
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  language: en
+  icon:
+    logo: material/compass-outline
+    repo: fontawesome/brands/github
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - navigation.instant
+    - navigation.instant.progress
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.tabs.link
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+  - toc:
+      permalink: true
+      permalink_title: Anchor link to this section
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+# File-existence links are enforced by --strict; cross-page anchor slugs vary between
+# Docsify and MkDocs, so we don't fail the build on them.
+validation:
+  omitted_files: warn
+  absolute_links: warn
+  unrecognized_links: warn
+  anchors: ignore
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/arungudelli/system-design-prep
+
+nav:
+  - Home: index.md
+  - Framework:
+      - The 20-Step Framework: 00-framework/system-design-framework.md
+      - Capacity Estimation: 00-framework/capacity-estimation.md
+      - Staff-Level Thinking: 00-framework/staff-level-thinking.md
+      - Interview Wording: 00-framework/interview-wording.md
+      - Interview Checklist: 00-framework/interview-checklist.md
+  - Patterns:
+      - Caching: 01-patterns/caching.md
+      - Partitioning & Sharding: 01-patterns/sharding.md
+      - Queues & Workers: 01-patterns/queues-workers.md
+      - Idempotency: 01-patterns/idempotency.md
+      - Rate Limiting: 01-patterns/rate-limiting.md
+  - Systems:
+      - URL Shortener:
+          - Overview: 02-systems/url-shortener/README.md
+          - Requirements: 02-systems/url-shortener/requirements.md
+          - Capacity: 02-systems/url-shortener/capacity.md
+          - API & Data Model: 02-systems/url-shortener/api-data-model.md
+          - Architecture: 02-systems/url-shortener/architecture.md
+          - Deep Dives: 02-systems/url-shortener/deep-dives.md
+          - Trade-offs: 02-systems/url-shortener/tradeoffs.md
+          - Failure Scenarios: 02-systems/url-shortener/failure-scenarios.md
+          - Interview Questions: 02-systems/url-shortener/interview-questions.md
+          - Cheatsheet: 02-systems/url-shortener/cheatsheet.md
+          - ★ Principal Deep Dive: 02-systems/url-shortener/principal-deep-dive.md
+      - Web Crawler:
+          - Overview: 02-systems/web-crawler/README.md
+          - Requirements: 02-systems/web-crawler/requirements.md
+          - Capacity: 02-systems/web-crawler/capacity.md
+          - API & Data Model: 02-systems/web-crawler/api-data-model.md
+          - Architecture: 02-systems/web-crawler/architecture.md
+          - Deep Dives: 02-systems/web-crawler/deep-dives.md
+          - Trade-offs: 02-systems/web-crawler/tradeoffs.md
+          - Failure Scenarios: 02-systems/web-crawler/failure-scenarios.md
+          - Interview Questions: 02-systems/web-crawler/interview-questions.md
+          - Cheatsheet: 02-systems/web-crawler/cheatsheet.md
+          - ★ Principal Deep Dive: 02-systems/web-crawler/principal-deep-dive.md
+      - Distributed Job Scheduler:
+          - Overview: 02-systems/job-scheduler/README.md
+          - Requirements: 02-systems/job-scheduler/requirements.md
+          - Capacity: 02-systems/job-scheduler/capacity.md
+          - API & Data Model: 02-systems/job-scheduler/api-data-model.md
+          - Architecture: 02-systems/job-scheduler/architecture.md
+          - Deep Dives: 02-systems/job-scheduler/deep-dives.md
+          - Trade-offs: 02-systems/job-scheduler/tradeoffs.md
+          - Failure Scenarios: 02-systems/job-scheduler/failure-scenarios.md
+          - Interview Questions: 02-systems/job-scheduler/interview-questions.md
+          - Cheatsheet: 02-systems/job-scheduler/cheatsheet.md
+          - ★ Principal Deep Dive: 02-systems/job-scheduler/principal-deep-dive.md
+      - Notification System:
+          - Overview: 02-systems/notification-system/README.md
+          - Requirements: 02-systems/notification-system/requirements.md
+          - Capacity: 02-systems/notification-system/capacity.md
+          - API & Data Model: 02-systems/notification-system/api-data-model.md
+          - Architecture: 02-systems/notification-system/architecture.md
+          - Deep Dives: 02-systems/notification-system/deep-dives.md
+          - Trade-offs: 02-systems/notification-system/tradeoffs.md
+          - Failure Scenarios: 02-systems/notification-system/failure-scenarios.md
+          - Interview Questions: 02-systems/notification-system/interview-questions.md
+          - Cheatsheet: 02-systems/notification-system/cheatsheet.md
+          - ★ Principal Deep Dive: 02-systems/notification-system/principal-deep-dive.md
