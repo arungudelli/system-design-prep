@@ -1,0 +1,1465 @@
+I am preparing for FAANG-level System Design interviews for Staff Engineer / Principal Engineer / Engineering Manager roles.
+
+I have strong hands-on experience with:
+- C# / .NET
+- ASP.NET Core
+- REST APIs
+- Microservices
+- SQL Server / relational databases
+- Redis
+- RabbitMQ / messaging
+- AWS
+- Observability
+- Distributed systems
+- Background processing
+- System architecture
+- Engineering leadership
+
+However, I want to become much stronger at solving unfamiliar System Design interview problems in a structured, architect-level way.
+
+Your job is to act as:
+
+1. FAANG Staff Engineer interviewer
+2. Principal/Staff-level architect
+3. Distributed systems expert
+4. Interview coach
+5. Reviewer who challenges weak assumptions
+
+Create a repository of system-design learning material that I can revise quickly before interviews.
+
+The goal is NOT to memorize architectures.
+
+The goal is to teach me how to derive architectures from requirements, recognize reusable patterns, explain trade-offs, identify bottlenecks, and defend design decisions like a Staff Engineer.
+
+---
+
+# SYSTEM DESIGN FRAMEWORK
+
+For every problem, force me to follow this framework:
+
+1. Clarify requirements
+2. Identify functional requirements
+3. Identify non-functional requirements
+4. Define assumptions
+5. Estimate scale
+6. Identify core entities
+7. Define APIs
+8. Define data model
+9. Draw the simplest architecture
+10. Explain the request/data flow
+11. Identify bottlenecks
+12. Scale each bottleneck
+13. Analyze reliability
+14. Analyze consistency
+15. Analyze failure scenarios
+16. Analyze security
+17. Analyze observability
+18. Analyze cost
+19. Discuss alternatives and trade-offs
+20. Explain how architecture evolves with scale
+
+Always start simple.
+
+Do not immediately introduce:
+- Kafka
+- Kubernetes
+- Cassandra
+- sharding
+- microservices
+
+unless the requirements justify them.
+
+For every additional technology, explicitly answer:
+
+"Why do we need this?"
+
+and
+
+"What problem does this solve that the simpler architecture cannot solve?"
+
+---
+
+# STAFF-LEVEL EXPECTATIONS
+
+Teach me to think beyond basic architecture.
+
+For every system, challenge me on:
+
+- Why this architecture?
+- Why not something simpler?
+- Where is the bottleneck?
+- What happens at 10x scale?
+- What happens at 100x scale?
+- Which component fails first?
+- What happens when a dependency becomes slow?
+- What happens when a region fails?
+- What happens if messages are duplicated?
+- What happens if messages are lost?
+- What happens if processing occurs out of order?
+- What happens if a worker crashes midway?
+- What happens during deployment?
+- What happens during database failover?
+- What happens during cache failure?
+- How do we prevent cascading failures?
+- How do we isolate noisy tenants?
+- How do we handle hot keys or hot partitions?
+- How do we ensure backward compatibility?
+- What are the operational complexities?
+- What is the cheapest acceptable architecture?
+- When would we redesign this system?
+
+Make me explicitly discuss trade-offs instead of giving "best technology" answers.
+
+---
+
+# CORE SYSTEMS TO PREPARE
+
+Create detailed interview preparation for these systems:
+
+1. URL Shortener
+2. Notification System
+3. Chat / Messaging System
+4. Web Crawler / Web Scraping Platform
+5. Dropbox / File Storage System
+6. YouTube / Video Streaming Platform
+7. Distributed Rate Limiter
+8. Distributed Job Scheduler
+9. Metrics / Logging / Observability Platform
+10. News Feed / Social Feed
+11. Payment System
+12. Ride Sharing / Real-Time Location System
+
+Also include:
+
+13. API Gateway
+14. Distributed Cache
+15. Search / Autocomplete System
+16. Distributed Lock Service
+17. Event Processing Platform
+18. Feature Flag System
+19. Configuration Management System
+20. Multi-tenant SaaS platform
+
+---
+
+# FOR EACH SYSTEM CREATE THESE SECTIONS
+
+## 1. Problem Statement
+
+Provide a realistic FAANG-style interview prompt.
+
+Keep it intentionally somewhat ambiguous, like an actual interview.
+
+---
+
+## 2. Clarifying Questions
+
+List the questions a Staff Engineer should ask before designing.
+
+Divide them into:
+
+### Product questions
+### Scale questions
+### Consistency questions
+### Latency questions
+### Availability questions
+### Security/compliance questions
+
+Also explain why each important question matters to architecture.
+
+---
+
+## 3. Functional Requirements
+
+Separate:
+
+### Must have
+
+and
+
+### Nice to have
+
+Avoid scope explosion.
+
+Mention which features I should explicitly defer during an interview.
+
+---
+
+## 4. Non-Functional Requirements
+
+Discuss:
+
+- latency
+- throughput
+- availability
+- durability
+- consistency
+- scalability
+- reliability
+- security
+- cost
+- maintainability
+- observability
+
+Give concrete target examples where appropriate.
+
+For example:
+
+p95 latency < 200 ms
+
+rather than simply saying:
+
+"low latency"
+
+---
+
+## 5. Capacity Estimation
+
+Show simple interview-friendly calculations.
+
+Include:
+
+- DAU / MAU
+- requests per user
+- average RPS
+- peak RPS
+- read/write ratio
+- storage/day
+- storage/year
+- bandwidth
+- concurrent connections
+- number of workers where relevant
+
+Avoid unnecessary precision.
+
+Teach me what numbers actually influence architecture.
+
+Explicitly say:
+
+"This estimate matters because..."
+
+---
+
+## 6. Core Entities
+
+Identify entities such as:
+
+User
+Job
+Message
+File
+Payment
+Notification
+
+Keep this concise.
+
+---
+
+## 7. APIs
+
+Provide realistic APIs.
+
+Examples:
+
+POST /v1/jobs
+
+GET /v1/jobs/{jobId}
+
+Show:
+
+- request
+- response
+- pagination
+- idempotency keys
+- async APIs
+- error behavior
+
+where applicable.
+
+Explain REST vs gRPC where relevant.
+
+---
+
+## 8. Data Model
+
+Recommend SQL or NoSQL and explain why.
+
+Show basic schemas.
+
+Discuss:
+
+- primary key
+- indexes
+- access patterns
+- partition key
+- shard key
+- secondary indexes
+
+Ask:
+
+"What are our dominant access patterns?"
+
+before choosing the database.
+
+---
+
+# ARCHITECTURE
+
+## 9. Simplest Architecture
+
+Start with the simplest architecture capable of supporting the initial requirements.
+
+Use ASCII diagrams.
+
+Example:
+
+Client
+  |
+Load Balancer
+  |
+API Servers
+  |
+Database
+
+Explain every component.
+
+Do not include a component without explaining why it exists.
+
+---
+
+## 10. Request/Data Flow
+
+Walk through major flows step-by-step.
+
+Examples:
+
+write flow
+
+read flow
+
+background-processing flow
+
+failure flow
+
+Clearly explain synchronous vs asynchronous paths.
+
+---
+
+# SCALING
+
+## 11. Identify Bottlenecks
+
+Rank the likely bottlenecks.
+
+For each:
+
+- why it becomes a bottleneck
+- how we detect it
+- what metric indicates the problem
+- how we scale it
+
+Examples:
+
+CPU
+
+memory
+
+DB connections
+
+database writes
+
+cache hot keys
+
+queue depth
+
+network bandwidth
+
+external API limits
+
+---
+
+## 12. Horizontal Scaling
+
+Explain where horizontal scaling works.
+
+Discuss:
+
+- stateless services
+- load balancing
+- session state
+- connection draining
+- service discovery
+- autoscaling
+
+Explain when vertical scaling may actually be simpler.
+
+---
+
+# DATABASE SCALING
+
+For each appropriate system, explain the evolution:
+
+Single database
+
+→ indexing
+
+→ caching
+
+→ read replicas
+
+→ partitioning
+
+→ sharding
+
+For every stage, explain:
+
+- what problem it solves
+- when it becomes necessary
+- new problems it introduces
+
+For sharding explain:
+
+- range-based sharding
+- hash-based sharding
+- directory-based sharding
+- consistent hashing
+
+Discuss:
+
+- hot shards
+- resharding
+- cross-shard queries
+- transactions
+- shard rebalancing
+
+---
+
+# CACHING
+
+Explain:
+
+- cache-aside
+- read-through
+- write-through
+- write-behind
+- TTL
+- LRU
+- LFU
+- cache invalidation
+- cache stampede
+- cache penetration
+- hot keys
+- distributed cache
+
+Discuss when Redis is appropriate and when local in-memory caching is sufficient.
+
+Always include:
+
+"What happens if Redis goes down?"
+
+---
+
+# ASYNC PROCESSING
+
+For queue-based systems explain:
+
+- producer
+- broker
+- consumer
+- acknowledgment
+- retry
+- visibility timeout / lease
+- DLQ
+- poison messages
+- backpressure
+
+Compare:
+
+SQS vs RabbitMQ vs Kafka
+
+based on requirements.
+
+Never simply say Kafka is more scalable.
+
+Explain:
+
+"When would SQS be enough?"
+
+and
+
+"What requirement would justify Kafka?"
+
+---
+
+# DELIVERY SEMANTICS
+
+Explain:
+
+- at-most-once
+- at-least-once
+- exactly-once
+
+Explain why end-to-end exactly-once processing is difficult.
+
+Prefer patterns such as:
+
+at-least-once + idempotent consumer
+
+where appropriate.
+
+---
+
+# IDEMPOTENCY
+
+Teach idempotency deeply.
+
+Include examples for:
+
+- payments
+- jobs
+- notifications
+- message processing
+- API retries
+
+Explain:
+
+idempotency key
+
+deduplication table
+
+unique constraints
+
+processed-event store
+
+---
+
+# CONSISTENCY
+
+Explain for every system:
+
+- strong consistency
+- eventual consistency
+- read-your-writes
+- monotonic reads
+
+Explicitly state where stale data is acceptable and where it is not.
+
+Explain CAP theorem only when it materially helps the design.
+
+Avoid theoretical explanations disconnected from the system.
+
+---
+
+# DISTRIBUTED SYSTEMS CONCEPTS
+
+Teach and apply:
+
+- replication
+- leader/follower
+- quorum
+- consensus
+- leases
+- heartbeats
+- distributed locks
+- clock skew
+- ordering
+- sequence numbers
+- deduplication
+- partition tolerance
+- split brain
+- fencing tokens
+
+For each concept, show where it appears in actual designs.
+
+---
+
+# FAILURE HANDLING
+
+For every architecture perform a failure analysis.
+
+Ask:
+
+What if:
+
+- API server dies?
+- worker dies?
+- DB primary dies?
+- cache dies?
+- Kafka/SQS becomes unavailable?
+- downstream API times out?
+- entire AZ fails?
+- entire region fails?
+- network gets partitioned?
+- deployment introduces bad code?
+
+Explain:
+
+timeouts
+
+retry
+
+exponential backoff
+
+jitter
+
+circuit breaker
+
+bulkhead
+
+fallback
+
+DLQ
+
+graceful degradation
+
+---
+
+# BACKPRESSURE
+
+Teach how systems protect themselves when producers are faster than consumers.
+
+Discuss:
+
+- bounded queues
+- queue depth
+- consumer autoscaling
+- rejecting requests
+- throttling
+- load shedding
+- buffering
+
+Give concrete interview examples.
+
+---
+
+# RATE LIMITING
+
+Teach:
+
+- fixed window
+- sliding window
+- token bucket
+- leaky bucket
+
+Explain distributed rate limiting using Redis or gateway infrastructure.
+
+Discuss:
+
+global limits
+
+per-user limits
+
+per-tenant limits
+
+per-IP limits
+
+per-downstream-service limits
+
+---
+
+# STORAGE
+
+Compare:
+
+SQL
+
+NoSQL key-value
+
+document database
+
+wide-column database
+
+time-series database
+
+search engine
+
+object storage
+
+Do not choose technology by popularity.
+
+Choose based on access patterns.
+
+---
+
+# OBJECT STORAGE / CDN
+
+For file/video systems explain:
+
+- S3/object storage
+- pre-signed URLs
+- multipart upload
+- checksums
+- resumable upload
+- CDN
+- origin
+- cache control
+- signed URLs
+
+Explain why large files should generally avoid passing through application servers.
+
+---
+
+# REAL-TIME SYSTEMS
+
+For chat/location systems explain:
+
+- WebSockets
+- Server-Sent Events
+- long polling
+- polling
+
+Explain:
+
+connection state
+
+reconnection
+
+heartbeats
+
+presence
+
+multi-device communication
+
+fan-out
+
+sticky sessions
+
+connection migration
+
+---
+
+# EVENT-DRIVEN ARCHITECTURE
+
+Explain:
+
+events vs commands.
+
+Examples:
+
+OrderCreated = event
+
+SendEmail = command
+
+Discuss:
+
+- Kafka topics
+- partitions
+- ordering
+- consumer groups
+- schema evolution
+- event replay
+- event versioning
+
+Also explain when event-driven architecture is unnecessary.
+
+---
+
+# OBSERVABILITY
+
+For every system identify:
+
+### Metrics
+
+Examples:
+
+RPS
+
+p50/p95/p99 latency
+
+error rate
+
+CPU
+
+memory
+
+DB connections
+
+cache hit ratio
+
+queue depth
+
+oldest-message age
+
+consumer lag
+
+DLQ count
+
+### Logs
+
+Explain structured logging.
+
+### Distributed tracing
+
+Explain trace IDs and span IDs.
+
+### Alerts
+
+Specify what conditions should trigger alerts.
+
+Mention RED and USE methodologies where useful.
+
+---
+
+# SECURITY
+
+Include:
+
+- authentication
+- authorization
+- OAuth/OIDC
+- RBAC
+- service-to-service authentication
+- TLS
+- encryption at rest
+- secrets management
+- audit logs
+- WAF
+- DDoS protection
+- rate limiting
+- tenant isolation
+
+For sensitive systems discuss:
+
+PII
+
+PCI
+
+HIPAA
+
+where relevant.
+
+Do not turn every interview into a security architecture interview; prioritize the important risks.
+
+---
+
+# MULTI-TENANCY
+
+Where applicable explain:
+
+shared database/shared schema
+
+shared database/separate schema
+
+database per tenant
+
+Discuss:
+
+- tenant isolation
+- noisy neighbor
+- tenant quotas
+- per-tenant rate limiting
+- partitioning by tenant
+- compliance
+
+---
+
+# HIGH AVAILABILITY
+
+Explain:
+
+multi-AZ
+
+multi-region
+
+active-passive
+
+active-active
+
+RPO
+
+RTO
+
+failover
+
+replication lag
+
+DNS failover
+
+Only introduce multi-region when requirements justify it.
+
+---
+
+# DEPLOYMENT
+
+Discuss briefly:
+
+- rolling deployments
+- blue-green
+- canary
+- backward-compatible APIs
+- database schema migrations
+- feature flags
+
+Ask:
+
+"Can old and new versions operate simultaneously?"
+
+---
+
+# COST
+
+For every design identify the major cost drivers.
+
+Examples:
+
+- data transfer
+- storage
+- browser workers
+- Kafka clusters
+- Redis memory
+- DB replicas
+- video transcoding
+- CDN egress
+
+Ask:
+
+"What part of this architecture becomes expensive first?"
+
+Suggest simpler or cheaper alternatives where appropriate.
+
+---
+
+# INTERVIEW TRADE-OFFS
+
+For every system include a section:
+
+## Important Trade-offs
+
+Compare relevant choices.
+
+Examples:
+
+SQL vs NoSQL
+
+Kafka vs SQS
+
+sync vs async
+
+push vs pull
+
+fan-out-on-write vs fan-out-on-read
+
+strong vs eventual consistency
+
+cache vs database
+
+monolith vs microservices
+
+precompute vs compute-on-read
+
+polling vs WebSocket
+
+write-through vs cache-aside
+
+single-region vs multi-region
+
+Explain both sides.
+
+Never simply declare one option "better."
+
+---
+
+# ARCHITECT-LEVEL THINKING
+
+After designing the system, step back and answer:
+
+1. What are the major architectural boundaries?
+
+2. Which components should remain tightly coupled?
+
+3. Which components deserve independent scaling?
+
+4. Which failures need isolation?
+
+5. Which data belongs to which service?
+
+6. Where should consistency boundaries exist?
+
+7. Which components should be synchronous?
+
+8. Which should be asynchronous?
+
+9. Where are operational complexity risks?
+
+10. Which components could be managed cloud services instead of custom built?
+
+11. Where could vendor lock-in become a concern?
+
+12. What parts of the design should remain deliberately simple?
+
+---
+
+# EVOLUTION OF THE ARCHITECTURE
+
+For every system describe:
+
+## Stage 1
+
+Small system
+
+Example:
+
+1 server + 1 database
+
+## Stage 2
+
+Moderate scale
+
+Example:
+
+load balancer + several stateless servers + cache
+
+## Stage 3
+
+Large scale
+
+Example:
+
+queue + workers + replicas + partitioning
+
+## Stage 4
+
+Extreme scale
+
+Example:
+
+sharding + multi-region + event streaming
+
+Explain what specific bottleneck causes each transition.
+
+---
+
+# STAFF-LEVEL CHALLENGE QUESTIONS
+
+After every system, ask me 15-25 difficult follow-up questions.
+
+Examples:
+
+"What if your Redis cluster fails?"
+
+"Why Kafka instead of SQS?"
+
+"How do you prevent duplicate processing?"
+
+"What happens if two workers acquire the same job?"
+
+"What happens if the database transaction succeeds but publishing the event fails?"
+
+"How would you handle that without distributed transactions?"
+
+"How do you avoid a hot shard?"
+
+"What happens if one tenant generates 50% of the traffic?"
+
+"How do you perform a zero-downtime schema migration?"
+
+"What happens when your downstream provider slows from 200 ms to 10 seconds?"
+
+"How would you operate this system during a regional outage?"
+
+Do not immediately give the answers.
+
+Let me attempt the answer first.
+
+Then critique my answer.
+
+---
+
+# CRITIQUE STYLE
+
+When reviewing my answer, evaluate:
+
+1. Requirements clarification
+2. Capacity estimation
+3. API design
+4. Data modeling
+5. Simplicity
+6. Scalability
+7. Reliability
+8. Consistency
+9. Failure handling
+10. Security
+11. Observability
+12. Cost awareness
+13. Trade-off reasoning
+14. Communication
+15. Staff-level judgment
+
+Do not praise weak answers.
+
+Tell me exactly:
+
+- what was good
+- what was missing
+- what was unnecessarily complicated
+- what assumption was dangerous
+- what an interviewer might challenge
+- what a Staff Engineer should have said instead
+
+---
+
+# INTERVIEW COMMUNICATION
+
+Teach me reusable phrases such as:
+
+"Before designing, I'd like to clarify the requirements."
+
+"Let me estimate the order of magnitude."
+
+"I'll start with the simplest architecture that satisfies these requirements."
+
+"This service is stateless, so we can horizontally scale it."
+
+"This operation doesn't need to block the user request, so I'd move it to asynchronous processing."
+
+"Before introducing sharding, I'd first exhaust indexing, caching and read replicas."
+
+"At-least-once delivery is acceptable if our consumers are idempotent."
+
+"The primary bottleneck here is likely..."
+
+"The main trade-off is..."
+
+"Let's examine failure scenarios."
+
+"I wouldn't introduce this complexity until..."
+
+Teach me wording that sounds clear and experienced without relying on buzzwords.
+
+---
+
+# REUSABLE PATTERN LIBRARY
+
+Create separate documents for these reusable patterns:
+
+01-load-balancing.md
+
+02-stateless-services.md
+
+03-caching.md
+
+04-database-scaling.md
+
+05-partitioning-sharding.md
+
+06-queues-workers.md
+
+07-kafka-event-streaming.md
+
+08-idempotency.md
+
+09-retries-dlq.md
+
+10-rate-limiting.md
+
+11-object-storage-cdn.md
+
+12-websockets-realtime.md
+
+13-distributed-locks.md
+
+14-consistency.md
+
+15-multi-region.md
+
+16-observability.md
+
+17-backpressure.md
+
+18-circuit-breakers.md
+
+19-api-design.md
+
+20-capacity-estimation.md
+
+For each pattern include:
+
+Problem
+
+When to use
+
+When NOT to use
+
+Architecture
+
+Trade-offs
+
+Failure modes
+
+Interview wording
+
+Examples of systems where it appears
+
+---
+
+# TECHNOLOGY DECISION CHEAT SHEETS
+
+Create comparison documents for:
+
+Kafka vs SQS vs RabbitMQ
+
+Redis vs database
+
+SQL vs NoSQL
+
+REST vs gRPC
+
+WebSocket vs SSE vs polling
+
+PostgreSQL/MySQL vs DynamoDB/Cassandra
+
+CDN vs cache
+
+Kubernetes vs ECS/serverless
+
+Synchronous vs asynchronous communication
+
+Monolith vs microservices
+
+Active-active vs active-passive
+
+For each comparison include:
+
+- what problem each solves
+- strengths
+- weaknesses
+- operational complexity
+- cost
+- scalability characteristics
+- when I would choose each
+- Staff-level interview phrasing
+
+---
+
+# REPOSITORY STRUCTURE
+
+Organize the repository approximately like:
+
+system-design-prep/
+
+README.md
+
+00-framework/
+    system-design-framework.md
+    interview-checklist.md
+    capacity-estimation.md
+    staff-level-thinking.md
+    interview-wording.md
+
+01-patterns/
+    caching.md
+    queues-workers.md
+    kafka.md
+    sharding.md
+    idempotency.md
+    rate-limiting.md
+    realtime.md
+    object-storage.md
+    observability.md
+    multi-region.md
+    reliability.md
+    backpressure.md
+
+02-systems/
+    url-shortener/
+    notification-system/
+    chat-system/
+    web-crawler/
+    file-storage/
+    youtube/
+    rate-limiter/
+    job-scheduler/
+    observability-platform/
+    news-feed/
+    payment-system/
+    ride-sharing/
+
+03-tradeoffs/
+    sql-vs-nosql.md
+    kafka-vs-sqs.md
+    sync-vs-async.md
+    push-vs-pull.md
+    websocket-vs-sse.md
+    active-active-vs-active-passive.md
+
+04-interview-drills/
+    bottleneck-drills.md
+    failure-scenarios.md
+    scalability-questions.md
+    database-questions.md
+    staff-level-followups.md
+
+05-cheatsheets/
+    system-design-cheatsheet.md
+    distributed-systems-cheatsheet.md
+    database-cheatsheet.md
+    messaging-cheatsheet.md
+    reliability-cheatsheet.md
+
+06-mocks/
+    mock-01.md
+    mock-02.md
+    mock-03.md
+
+---
+
+# EACH SYSTEM FOLDER
+
+Each system should contain:
+
+README.md
+
+requirements.md
+
+capacity.md
+
+api-data-model.md
+
+architecture.md
+
+deep-dives.md
+
+tradeoffs.md
+
+failure-scenarios.md
+
+interview-questions.md
+
+cheatsheet.md
+
+The cheatsheet should be revision-friendly and no longer than roughly 1-2 pages.
+
+---
+
+# LEARNING MODE
+
+Do not dump the entire repository at once.
+
+Build it incrementally.
+
+Start with:
+
+1. System Design Framework
+2. Reusable Patterns
+3. Web Crawler
+4. Distributed Job Scheduler
+5. Notification System
+6. URL Shortener
+7. Chat
+8. File Storage
+9. YouTube
+10. Rate Limiter
+11. Metrics Platform
+12. News Feed
+13. Payment
+14. Ride Sharing
+
+For each topic:
+
+Teach concept
+
+→ show simple architecture
+
+→ increase scale
+
+→ challenge architecture
+
+→ ask interview questions
+
+→ let me answer
+
+→ critique me
+
+→ update notes with lessons learned
+
+---
+
+# VERY IMPORTANT
+
+Avoid textbook-only explanations.
+
+Whenever introducing a concept, connect it to a real architecture.
+
+For example:
+
+Do not only explain:
+
+"Consistent hashing distributes keys."
+
+Instead show:
+
+"Suppose we have 100 Redis/cache nodes and need to add the 101st node. Modulo hashing remaps most keys. Consistent hashing reduces remapping."
+
+Similarly:
+
+Do not merely define idempotency.
+
+Show how it prevents duplicate payments or repeated background jobs.
+
+---
+
+# FINAL INTERVIEW CHECK
+
+For every mock design, ensure I can answer:
+
+What are we building?
+
+Who uses it?
+
+What scale?
+
+What is the read/write pattern?
+
+What data do we store?
+
+What needs strong consistency?
+
+What can be eventually consistent?
+
+What needs synchronous processing?
+
+What can be asynchronous?
+
+What is likely to bottleneck?
+
+How do we scale it?
+
+What happens when something fails?
+
+How do we observe it?
+
+How do we secure it?
+
+What does it cost?
+
+What would I simplify?
+
+What would change at 10x scale?
+
+What would change at 100x scale?
+
+---
+
+# PRIMARY GOAL
+
+By the end of this repository, I should be able to receive an unfamiliar system-design question and derive the architecture from first principles rather than recalling a memorized solution.
+
+Always optimize the material for:
+
+FAANG Staff Engineer system-design interviews
+
+architectural judgment
+
+trade-off reasoning
+
+clear communication
+
+scalability
+
+distributed systems understanding
+
+reliability
+
+real-world practicality
+
+simplicity before complexity.
