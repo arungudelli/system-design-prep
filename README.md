@@ -27,7 +27,7 @@ simpler design can't?"*
 | Section | What's in it | Status |
 |---|---|---|
 | [`00-framework/`](00-framework/system-design-framework.md) | The 20-step method, capacity math, staff-level thinking, interview wording, checklist | 🟢 done |
-| [`01-patterns/`](01-patterns/caching.md) | **Caching 🟢 · Sharding 🟢** · queues/workers, idempotency, rate limiting, realtime, object storage, observability, multi-region (planned) | 🟢 building |
+| [`01-patterns/`](01-patterns/caching.md) | **Caching 🟢 · Sharding 🟢 · Queues & Workers 🟢** · idempotency, rate limiting, realtime, object storage, observability, multi-region (planned) | 🟢 building |
 | [`02-systems/`](02-systems/url-shortener/README.md) | **URL Shortener 🟢** · notifications, chat, web crawler, file storage, YouTube, rate limiter, job scheduler, metrics, news feed, payments, ride-sharing (planned) | 🟢 building |
 | `03-tradeoffs/` | SQL vs NoSQL, Kafka vs SQS, sync vs async, push vs pull, WebSocket vs SSE, active-active vs active-passive | ⚪ planned |
 | `04-interview-drills/` | Bottleneck drills, failure scenarios, scalability & DB questions, staff-level follow-ups | ⚪ planned |
@@ -44,7 +44,8 @@ Building **one topic at a time** (per the learning plan in `prompt.txt`):
 - [x] **02 · URL Shortener** — first full per-system walkthrough
 - [x] **01 · Caching pattern** — the highest-leverage read-scaling move
 - [x] **01 · Partitioning & Sharding pattern** — the write/storage-scaling last resort
-- [ ] 01 · More patterns (queues/workers, idempotency, rate limiting…)
+- [x] **01 · Queues & Workers pattern** — async processing foundation
+- [ ] 01 · More patterns (idempotency, rate limiting, realtime…)
 - [ ] 02 · Web Crawler
 - [ ] 02 · Distributed Job Scheduler
 - [ ] 02 · Notification System
