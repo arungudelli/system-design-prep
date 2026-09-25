@@ -60,6 +60,10 @@ For every problem, force me to follow this framework:
 
 Always start simple.
 
+Treat every design as a STAIRCASE OF STOPS (see "# PROGRESSIVE SCALE STAGES" below).
+Introduce complexity only at the stop whose trigger justifies it, and ALWAYS surface the
+next (bigger) stop so I am never blind in an interview.
+
 Do not immediately introduce:
 - Kafka
 - Kubernetes
@@ -1027,6 +1031,56 @@ sharding + multi-region + event streaming
 
 Explain what specific bottleneck causes each transition.
 
+For EACH stage also state:
+- the TRIGGER: the single bottleneck/SLA that forces the jump to the next stage
+- an OVER-ENGINEERING WATCH: "adopt this only when <trigger>; below that it is
+  unjustified complexity and I would REMOVE it."
+
+The reader must be able to give the small stage confidently, name the next stage and its
+trigger when pushed on scale, and explain why they would NOT jump straight to the big one.
+
+---
+
+# PROGRESSIVE SCALE STAGES — "THE STOPS" (NEVER BE BLIND)
+
+Governing methodology for EVERY design question in this repo.
+Design as a staircase, not a single answer. Each "stop" is a COMPLETE, defensible,
+interview-ready design at a given scale. Start at the smallest stop that meets the stated
+requirements; climb one lever at a time.
+
+For every stop make explicit:
+  1. Scale/SLA this stop targets (the numbers).
+  2. The design at this stop (as simple as the requirements allow).
+  3. The single bottleneck/SLA that FORCES the next stop (the trigger).
+  4. "Going bigger": the next stop's heavier machinery — named and briefly explained —
+     LABELED "only justified when <trigger>". This is the over-engineering watch: the
+     reader must SEE the advanced option (never blind) AND see that adopting it without
+     the trigger is a red flag.
+
+Rules:
+  - Default to the smallest stop; announce why.
+  - Never introduce Kafka/Kubernetes/Cassandra/sharding/ZooKeeper/multi-region/
+    microservices/stream-processing at an early stop — only at the stop whose trigger
+    justifies it, stated out loud.
+  - Per added component always answer: "Why do we need this?" and "What does it solve
+    that the simpler stop cannot?"
+  - Goal: (a) confidently give the simple stop, (b) name the next stop + trigger when
+    pushed on scale, (c) explain why you would NOT jump straight to big.
+
+Template stop-ladder (adapt per system; name the ACTUAL trigger each time):
+  Stop 1 — single region, 1 primary DB + cache             (~1k QPS, 99.9%)
+  Stop 2 — read replicas + CDN/edge + async queue          (~10k QPS, 99.95%)
+  Stop 3 — sharding + dedicated services + stream analytics (~100k QPS, 99.99%)
+  Stop 4 — multi-region active-active + global coordination (~1M+ QPS, 99.999%)
+
+Two-tier document convention per system:
+  - The core per-system files present Stops 1-2/3 in the "start simple, justify each
+    addition" voice — what a strong candidate LEADS with.
+  - An extra file `principal-deep-dive.md` presents the top-stop (max-scale /
+    "over-engineered") variant WITH a reconciliation table mapping each heavy component
+    to the bottleneck/SLA that forces it, plus an explicit note on when to REMOVE it.
+    This is the "never be blind" reference.
+
 ---
 
 # STAFF-LEVEL CHALLENGE QUESTIONS
@@ -1327,7 +1381,16 @@ interview-questions.md
 
 cheatsheet.md
 
+principal-deep-dive.md
+
 The cheatsheet should be revision-friendly and no longer than roughly 1-2 pages.
+
+principal-deep-dive.md is the "never be blind" companion: the exhaustive top-stop
+(max-scale / deliberately over-engineered) variant of the system, WITH a reconciliation
+table mapping every heavy component to the specific bottleneck/SLA that forces it, and an
+explicit note on when each component is overkill and should be REMOVED. The nine core
+files lead with the simplest defensible stop; this file shows the fully-loaded design plus
+the judgment to know when it is too much.
 
 ---
 
