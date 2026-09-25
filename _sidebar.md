@@ -11,7 +11,19 @@
 
 - **01 · Patterns** <small>(coming)</small>
 
-- **02 · Systems** <small>(coming)</small>
+- **02 · Systems**
+  - **URL Shortener**
+    - [Overview](02-systems/url-shortener/README.md)
+    - [Requirements](02-systems/url-shortener/requirements.md)
+    - [Capacity](02-systems/url-shortener/capacity.md)
+    - [API & Data Model](02-systems/url-shortener/api-data-model.md)
+    - [Architecture](02-systems/url-shortener/architecture.md)
+    - [Deep Dives](02-systems/url-shortener/deep-dives.md)
+    - [Trade-offs](02-systems/url-shortener/tradeoffs.md)
+    - [Failure Scenarios](02-systems/url-shortener/failure-scenarios.md)
+    - [Interview Questions](02-systems/url-shortener/interview-questions.md)
+    - [Cheatsheet](02-systems/url-shortener/cheatsheet.md)
+  - <small>more systems coming…</small>
 
 - **03 · Trade-offs** <small>(coming)</small>
 
