@@ -130,6 +130,9 @@ nav:
           - Interview Questions: 02-systems/job-scheduler/interview-questions.md
           - Cheatsheet: 02-systems/job-scheduler/cheatsheet.md
           - ★ Principal Deep Dive: 02-systems/job-scheduler/principal-deep-dive.md
+      - Chat / Messaging System:
+          - Overview: 02-systems/chat-system/README.md
+          - Requirements: 02-systems/chat-system/requirements.md
       - Notification System:
           - Overview: 02-systems/notification-system/README.md
           - Requirements: 02-systems/notification-system/requirements.md
