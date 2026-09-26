@@ -122,7 +122,7 @@ Providers fail, throttle, and time out constantly — resilience is the core job
 ## 8. In-app notifications (the channel with no external provider)
 
 - In-app = a **write to a feed store** keyed by `user_id`, read by the client (poll, or push via WebSocket/SSE —
-  see realtime *(coming)*). No third-party provider, so it's the most reliable
+  see [real-time delivery](../../01-patterns/websockets-realtime.md)). No third-party provider, so it's the most reliable
   channel and a good fallback.
 - Often paired with **read/seen tracking** and **aggregation** ("3 people liked your post") to reduce noise.
 
