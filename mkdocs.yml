@@ -154,6 +154,18 @@ nav:
           - Interview Questions: 02-systems/file-storage/interview-questions.md
           - Cheatsheet: 02-systems/file-storage/cheatsheet.md
           - ★ Principal Deep Dive: 02-systems/file-storage/principal-deep-dive.md
+      - Video Streaming (YouTube):
+          - Overview: 02-systems/video-streaming/README.md
+          - Requirements: 02-systems/video-streaming/requirements.md
+          - Capacity: 02-systems/video-streaming/capacity.md
+          - API & Data Model: 02-systems/video-streaming/api-data-model.md
+          - Architecture: 02-systems/video-streaming/architecture.md
+          - Deep Dives: 02-systems/video-streaming/deep-dives.md
+          - Trade-offs: 02-systems/video-streaming/tradeoffs.md
+          - Failure Scenarios: 02-systems/video-streaming/failure-scenarios.md
+          - Interview Questions: 02-systems/video-streaming/interview-questions.md
+          - Cheatsheet: 02-systems/video-streaming/cheatsheet.md
+          - ★ Principal Deep Dive: 02-systems/video-streaming/principal-deep-dive.md
       - Notification System:
           - Overview: 02-systems/notification-system/README.md
           - Requirements: 02-systems/notification-system/requirements.md
