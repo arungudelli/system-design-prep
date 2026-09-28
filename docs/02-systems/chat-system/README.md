@@ -31,7 +31,7 @@ holds the recipient's socket**, guaranteeing **ordered, exactly-once-*effect* de
 ## Read in this order
 
 1. **[Requirements](requirements.md)** — problem, clarifying questions, functional + NFRs
-2. **Capacity** *(coming)* — connections, messages/sec, storage, fan-out
+2. **[Capacity](capacity.md)** — connections, messages/sec, storage, fan-out
 3. **API & Data Model** *(coming)* — WebSocket protocol, message/conversation schema, sequence numbers
 4. **Architecture** *(coming)* — connection tier → routing → message service → store → offline push
 5. **Deep Dives** *(coming)* — routing, ordering & dedup, receipts, presence, group fan-out, multi-device sync

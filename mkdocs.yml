@@ -133,6 +133,7 @@ nav:
       - Chat / Messaging System:
           - Overview: 02-systems/chat-system/README.md
           - Requirements: 02-systems/chat-system/requirements.md
+          - Capacity: 02-systems/chat-system/capacity.md
       - Notification System:
           - Overview: 02-systems/notification-system/README.md
           - Requirements: 02-systems/notification-system/requirements.md
