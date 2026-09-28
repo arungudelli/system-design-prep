@@ -32,14 +32,14 @@ holds the recipient's socket**, guaranteeing **ordered, exactly-once-*effect* de
 
 1. **[Requirements](requirements.md)** — problem, clarifying questions, functional + NFRs
 2. **[Capacity](capacity.md)** — connections, messages/sec, storage, fan-out
-3. **API & Data Model** *(coming)* — WebSocket protocol, message/conversation schema, sequence numbers
-4. **Architecture** *(coming)* — connection tier → routing → message service → store → offline push
-5. **Deep Dives** *(coming)* — routing, ordering & dedup, receipts, presence, group fan-out, multi-device sync
-6. **Trade-offs** *(coming)* — the decisions, both sides
-7. **Failure Scenarios** *(coming)* — connection drops, split brain, dup/lost messages, hot groups
-8. **Interview Questions** *(coming)* — attempt first, then reveal
-9. **Cheatsheet** *(coming)* — 1-page revision
-10. **★ Principal Deep Dive** *(coming)* — the **staged stops** (single server → global) + max-scale
+3. **[API & Data Model](api-data-model.md)** — WebSocket protocol, message/conversation schema, sequence numbers
+4. **[Architecture](architecture.md)** — connection tier → routing → message service → store → offline push
+5. **[Deep Dives](deep-dives.md)** — routing, ordering & dedup, receipts, presence, group fan-out, multi-device sync
+6. **[Trade-offs](tradeoffs.md)** — the decisions, both sides
+7. **[Failure Scenarios](failure-scenarios.md)** — connection drops, split brain, dup/lost messages, hot groups
+8. **[Interview Questions](interview-questions.md)** — attempt first, then reveal
+9. **[Cheatsheet](cheatsheet.md)** — 1-page revision
+10. **[★ Principal Deep Dive](principal-deep-dive.md)** — the **staged stops** (single server → global) + max-scale
     variant (sharded connection tier, per-conversation sequencing, multi-region, E2E encryption) with a
     reconciliation table of when to adopt/remove each piece
 

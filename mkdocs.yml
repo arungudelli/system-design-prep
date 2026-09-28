@@ -134,6 +134,14 @@ nav:
           - Overview: 02-systems/chat-system/README.md
           - Requirements: 02-systems/chat-system/requirements.md
           - Capacity: 02-systems/chat-system/capacity.md
+          - API & Data Model: 02-systems/chat-system/api-data-model.md
+          - Architecture: 02-systems/chat-system/architecture.md
+          - Deep Dives: 02-systems/chat-system/deep-dives.md
+          - Trade-offs: 02-systems/chat-system/tradeoffs.md
+          - Failure Scenarios: 02-systems/chat-system/failure-scenarios.md
+          - Interview Questions: 02-systems/chat-system/interview-questions.md
+          - Cheatsheet: 02-systems/chat-system/cheatsheet.md
+          - ★ Principal Deep Dive: 02-systems/chat-system/principal-deep-dive.md
       - Notification System:
           - Overview: 02-systems/notification-system/README.md
           - Requirements: 02-systems/notification-system/requirements.md
